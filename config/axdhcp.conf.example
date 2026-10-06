@@ -1,0 +1,15 @@
+# Plain key=value data; never sourced as shell code.
+enabled=0
+bridge=br0
+backhaul=eth7
+downstream=eth6,wl1.1
+pool_start=10.0.0.201
+pool_end=10.0.0.250
+netmask=255.255.255.0
+gateway=10.0.0.1
+dns=10.0.0.1
+lease_seconds=600
+test_seconds=300
+autostart=0
+pool_confirmed=0
+dns_confirmed=0

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>华硕定向 DHCP</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><span class="mark" aria-hidden="true">AX</span><div><h1>华硕定向 DHCP</h1><p>axdhcp / 0.1.1</p></div><span class="badge">第一阶段 · 本地预览</span></header>
+<main>
+<div class="notice"><strong>软件中心框架待确认</strong><p>此页面未连接路由器。保存仅保留在当前浏览器；网络操作待实际 API、鉴权与硬件路径确认后开放。</p></div>
+<section class="status-band" aria-label="运行状态"><strong id="service-state">未连接</strong></section>
+<form id="config">
+<section><div class="section-head"><h2>服务配置</h2></div>
+<div class="fields">
+<label>网络桥<select name="bridge" required><option value="">等待识别</option></select></label>
+<label>上游回程<select name="backhaul" required><option value="">先选择网络桥</option></select></label>
+<fieldset class="downstream"><legend>下游 Wi-Fi（可多选）</legend><div id="downstream-options">等待识别</div></fieldset>
+<label>开机自动运行<span class="checkbox-field"><input name="autostart" type="checkbox">重启后自动启动</span></label>
+<label>地址池起点<input name="pool_start" required maxlength="15" inputmode="decimal"></label>
+<label>地址池终点<input name="pool_end" required maxlength="15" inputmode="decimal"></label>
+<label>子网掩码<input name="netmask" required maxlength="15"></label>
+<label>默认网关<input name="gateway" required maxlength="15"></label>
+<label>DNS<input name="dns" required maxlength="47"></label>
+<label>租约时间（秒）<input name="lease_seconds" type="number" min="120" max="86400" required></label>
+</div>
+<p id="interface-help">选择连接上游的回程，以及给设备连接的下游 Wi-Fi。</p>
+<button type="button" id="discover-interfaces">重新识别接口</button>
+<input name="test_seconds" type="hidden" value="300">
+<div class="confirmations"><label><input name="pool_confirmed" type="checkbox">地址池无静态地址、保留地址或绑定占用</label><label><input name="dns_confirmed" type="checkbox">DNS 地址可用</label></div>
+<div class="actions"><button type="submit">保存配置</button><button type="button" id="run-service" disabled>启动</button><button type="button" id="stop-service" disabled>停止并恢复</button><output id="message" role="status"></output></div>
+<output id="last-error" role="status" hidden></output>
+<p class="hint">启动会保存当前配置；修改运行中的配置，请先停止。</p>
+</section>
+</form>
+<section><div class="section-head"><h2>运行记录</h2><button type="button" id="refresh">刷新</button></div>
+<div class="tabs" role="tablist"><button role="tab" aria-selected="true" aria-controls="leases" id="tab-leases">DHCP 租约</button><button role="tab" aria-selected="false" aria-controls="rules" id="tab-rules">规则计数</button><button role="tab" aria-selected="false" aria-controls="logs" id="tab-logs">日志</button></div>
+<div id="leases" role="tabpanel" aria-labelledby="tab-leases"><div class="table-scroll"><table><thead><tr><th>IP 地址</th><th>MAC 地址</th><th>主机名</th><th>租约时间</th></tr></thead><tbody id="lease-rows"><tr><td colspan="4" class="empty">未连接路由器，暂无租约数据</td></tr></tbody></table></div></div>
+<div id="rules" role="tabpanel" aria-labelledby="tab-rules" hidden><table><thead><tr><th>链</th><th>用途</th><th>数据包 / 字节</th></tr></thead><tbody><tr><td>AXDI · INPUT</td><td>本机 DHCP 请求入口</td><td>未采集</td></tr><tr><td>AXDF · FORWARD</td><td>下游 DHCP 桥转发</td><td>未采集</td></tr><tr><td>AXDO · OUTPUT</td><td>本机 DHCP 响应出口</td><td>未采集</td></tr></tbody></table></div>
+<div id="logs" role="tabpanel" aria-labelledby="tab-logs" hidden><pre id="log-content">未连接路由器，暂无运行日志。</pre></div>
+</section>
+<details class="support"><summary>诊断与使用说明</summary>
+<div class="section-head"><button type="button" id="check-env">读取诊断信息</button><button type="button" id="copy-diagnostics">复制诊断报告</button></div>
+<pre id="check-report">尚未检查</pre>
+<p>诊断不会修改网络，报告分享前请检查并脱敏。</p>
+<p>停止只影响本次运行。若重启后也不运行，请取消“开机自动运行”并保存。</p>
+<p>租约时间按固件提供的数据显示日期或时长。切换 Wi-Fi 可能沿用旧地址，重新连接后核对租约。</p>
+<p>设备仍在同一网段，可互相访问；静态 IP 和 IPv6 不受此地址池控制。</p>
+</details>
+</main><script src="presentation.js"></script><script src="app.js"></script>
+</body></html>

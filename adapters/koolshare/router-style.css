@@ -1,0 +1,36 @@
+/* Router-only presentation; the same-origin frame isolates firmware CSS. */
+:root{color-scheme:dark;background:#4d595d;color:#fff;font-family:Arial,"Microsoft YaHei",sans-serif;font-size:13px}
+body{background:#4d595d;color:#fff}
+header{padding:20px 20px 16px;gap:12px;max-width:none}
+main{padding:0 20px 20px;max-width:none}
+h1{font-size:21px;color:#fff}h2{font-size:15px;color:#fff}
+header p,.eyebrow,.fields>label,.downstream,.server-note,.limits p,footer{color:#c7d0d3}
+.mark{width:36px;height:36px;border-radius:3px;background:#313b3f}
+.badge{color:#dce4e7;border-color:#748185;background:#424d51;font-size:11px}
+.notice{background:#3b464a;border-left-color:#d8b56a;padding:10px 12px}
+.notice strong{color:#f0d28d}.notice p{color:#dce3e6;font-size:12px;line-height:1.6}
+.status-band{grid-template-columns:repeat(3,minmax(0,1fr));padding:17px 0;gap:14px}
+.status-band strong{font-size:16px;color:#fff}#state{color:#f0d28d}
+section,.status-band,.topology{border-color:#687579}section{padding:16px 0}
+.section-head{margin-bottom:12px;align-items:center}
+section>p{font-size:12px;line-height:1.6;margin:10px 0}
+.fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px}
+input:not([type=checkbox]),select{height:34px;background:#303b3f;border-color:#7e8b90;color:#fff;font-size:13px}
+input[readonly]{background:#414d51;color:#d0d9dc}
+input[type=checkbox]{accent-color:#7da9bd}
+.checkbox-field{height:auto;min-height:34px;font-size:12px}
+.downstream label{font-size:12px;min-height:22px}
+.switch{font-size:12px}.confirmations label{font-size:12px}
+button{background:#38464b;border-color:#819399;color:#fff;min-height:32px;font-size:12px;padding:6px 12px}
+button[type=submit]{background:#49758b;border-color:#90b2c3}
+button:disabled{background:#424d51;border-color:#647176;color:#9cabad}
+output{color:#c4e8f7}.actions{margin-top:14px;gap:8px}
+pre{color:#d5e0e4;background:#394549;border:1px solid #647277;padding:10px;min-height:0;margin:10px 0;font-size:11px;line-height:1.6;max-height:360px;overflow:auto}
+#check-report:empty{display:none}#check-report{min-height:38px}
+.tabs{gap:18px;border-color:#7e8b90}.tabs button{color:#ced8dc}
+.tabs button[aria-selected=true]{color:#fff;border-bottom-color:#9dc9dd}
+th,td{color:#e1e8eb;border-color:#6d7a80;padding:10px 8px}th{color:#c2d0d6}.empty{color:#c2d0d6;padding:22px 8px}
+.limits p{margin-top:8px}footer{padding:8px 0;font-size:10px}
+@media(max-width:600px){header{padding:16px}main{padding:0 16px 16px}.fields{gap:12px}.badge{max-width:100px}.section-head{flex-wrap:wrap}}
+.status-band{display:flex;padding:12px 0}
+.support,.support p,.hint,#interface-help{color:#c7d0d3}

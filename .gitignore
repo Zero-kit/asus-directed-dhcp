@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+
+# Local router settings and generated artifacts
+config/axdhcp.conf
+dist/
+docs/qa/
